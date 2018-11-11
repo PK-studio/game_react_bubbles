@@ -1,2 +1,4 @@
-# boilerplate
-Template for React and Redux
+# Boilerplate
++ (+) React.js
++ (-) Redux.js
++ (-) Testing - Jest.js
