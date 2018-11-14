@@ -1,4 +1,4 @@
 # Boilerplate
 + (+) React.js
-+ (-) Redux.js
-+ (-) Testing - Jest.js
++ (+) Redux.js
++ (+) Testing - Jest.js
