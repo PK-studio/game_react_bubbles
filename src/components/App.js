@@ -3,16 +3,15 @@ import { hot } from "react-hot-loader";
 import { Provider } from 'react-redux';
 
 import "./App.css";
-import Store from '../Store'
-import DisplayExample from './DisplayExample'
+import store from '../Store'
+import Screen from './Screen'
 
 class App extends Component {
   render() {
     return (
-      <Provider store={Store}>
-        <div className="App">
-          <h1> Hello, World! </h1>
-          <DisplayExample />
+      <Provider store={store}>
+        <div>
+          <Screen />
         </div>
       </Provider>
     );
