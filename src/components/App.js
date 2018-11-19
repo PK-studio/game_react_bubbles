@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { hot } from "react-hot-loader";
 import { Provider } from 'react-redux';
 
-import "./App.css";
+import "./App.scss";
 import store from '../Store'
 import Screen from './Screen'
 
