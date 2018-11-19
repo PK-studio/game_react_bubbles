@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { activateColor } from '../actions/action.colors'
+import { settings } from '../settings'
 
 export class Controls extends Component {
-  onClick(event) {
-    console.log(event.target.style.backgroundColor)
-  }
-
   buttons() {
-    return this.props.colors.map((color, index) => (
+    return settings.colors.map((color, index) => (
       <div
         key={index}
         className='button'
         style={{ backgroundColor: color }}
-        onClick={this.onClick}
+        onClick={() => this.props.getColor(color)}
       ></div >
     ))
   }
@@ -27,11 +25,13 @@ export class Controls extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  colors: state.setting.colors
+
 })
 
-const mapDispatchToProps = {
-
-}
+const mapDispatchToProps = dispatch => ({
+  getColor: color => {
+    dispatch(activateColor(color))
+  }
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Controls)

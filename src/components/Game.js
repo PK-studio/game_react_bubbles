@@ -15,7 +15,4 @@ export class Game extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-}
-
 export default connect(null, null)(Game)

@@ -7,22 +7,24 @@ export class Board extends Component {
     return (
       <div className='board'>
         <h1>Game Component</h1>
-        <button name='menu' onClick={this.props.clickButton}>Go to Menu</button>
+        <p>active color is {this.props.activeColor}</p>
+        <button
+          onClick={() => this.props.goTo('menu')}>
+          Go to Menu
+        </button>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-
+  activeColor: state.color.activeColor
 })
 
-const mapDispatchToProps = dispatch => {
-  return {
-    clickButton: event => {
-      dispatch(changeScreen(event.target.name))
-    }
+const mapDispatchToProps = dispatch => ({
+  goTo: place => {
+    dispatch(changeScreen(place))
   }
-}
+})
 
-export default connect(null, mapDispatchToProps)(Board)
+export default connect(mapStateToProps, mapDispatchToProps)(Board)
