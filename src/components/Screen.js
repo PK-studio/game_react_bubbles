@@ -19,15 +19,14 @@ export class Screen extends Component {
   render() {
     return (
       <div className='screen'>
-        <h1> Bubble chellange </h1>
         {this.displayComponent()}
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  displayScreen: state.displayScreen.status
+const mapStateToProps = state => ({
+  displayScreen: state.screen.status
 })
 
 export default connect(mapStateToProps, {})(Screen)

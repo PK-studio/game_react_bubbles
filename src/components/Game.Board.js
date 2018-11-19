@@ -1,18 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
 import { changeScreen } from '../actions/action.change.screen'
 
-export class Menu extends Component {
+export class Board extends Component {
   render() {
     return (
-      <div className='menu'>
-        <h1>Level: {this.props.level}</h1>
-        <button name='game' onClick={this.props.clickButton}>Go to game</button>
+      <div className='board'>
+        <h1>Game Component</h1>
+        <button name='menu' onClick={this.props.clickButton}>Go to Menu</button>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+
+})
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -22,8 +25,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const mapStateToProps = state => ({
-  level: state.score.level
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Menu)
+export default connect(null, mapDispatchToProps)(Board)

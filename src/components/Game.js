@@ -1,25 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { changeScreen } from '../actions/changeScreen.action'
+import Controls from './Game.Controls'
+import Board from './Game.Board'
 
 export class Game extends Component {
   render() {
     return (
-      <div>
-        <h1>Game Component</h1>
-        <button name='menu' onClick={this.props.clickButton}>Go to Menu</button>
+      <div className='game'>
+        <Controls />
+        <Board />
       </div>
     )
   }
 }
 
 const mapDispatchToProps = dispatch => {
-  return {
-    clickButton: event => {
-      dispatch(changeScreen(event.target.name))
-    }
-  }
 }
 
-export default connect(null, mapDispatchToProps)(Game)
+export default connect(null, null)(Game)
