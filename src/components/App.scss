@@ -26,28 +26,35 @@ h1, h2, h3, h4, h5 {
 }
 
 .game {
+  height: 100%;
+  width: 100%;
   display: flex;
+  background-size: cover;
+  background-image: url("../img/wallpaper1.jpg");
 }
 
-.controls {
+.controPanel {
   height: 100vh;
   width: 10%;
-  background: #c3c3ff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  background: rgba(100, 0, 98, 0.6);
 
-  .button{
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 10px;
-    margin: auto;
+  .controls {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+    .button{
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      margin: auto;
+    }
   }
 }
 
 .board {
   height: 100vh;
   width: 90%;
-  background: #7a7a7b;
+  background: transparent;
 }

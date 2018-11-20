@@ -1,11 +1,12 @@
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { activateColor } from '../actions/action.colors'
-import { settings } from '../settings'
 
 export class Controls extends Component {
-  buttons() {
-    return settings.colors.map((color, index) => (
+
+  createButtons() {
+    return this.props.colors.map((color, index) => (
       <div
         key={index}
         className='button'
@@ -18,15 +19,12 @@ export class Controls extends Component {
   render() {
     return (
       <div className='controls'>
-        {this.buttons()}
+        {this.createButtons()}
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-
-})
 
 const mapDispatchToProps = dispatch => ({
   getColor: color => {
@@ -34,4 +32,4 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Controls)
+export default connect(null, mapDispatchToProps)(Controls)

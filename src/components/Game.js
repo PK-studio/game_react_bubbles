@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Controls from './Game.Controls'
+import Panel from './Game.ControlPanel'
 import Board from './Game.Board'
 
 export class Game extends Component {
   render() {
     return (
       <div className='game'>
-        <Controls />
+        <Panel />
         <Board />
       </div>
     )

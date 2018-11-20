@@ -29,6 +29,7 @@
     "babel-loader": "^8.0.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
     "jest": "^23.6.0",
     "node-sass": "^4.10.0",
     "react": "^16.5.2",
