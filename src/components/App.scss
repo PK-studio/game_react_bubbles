@@ -31,30 +31,35 @@ h1, h2, h3, h4, h5 {
   display: flex;
   background-size: cover;
   background-image: url("../img/wallpaper1.jpg");
-}
-
-.controPanel {
-  height: 100vh;
-  width: 10%;
-  background: rgba(100, 0, 98, 0.6);
-
-  .controls {
-    height: 75vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
   
-    .button{
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      margin: auto;
+  .controPanel {
+    height: 100vh;
+    width: 10%;
+    background: rgba(100, 0, 98, 0.6);
+    
+    .showtime{
+      color: white;
+      text-align: center;
+    }
+
+    .controls {
+      height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      
+      .button{
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        margin: auto;
+      }
     }
   }
-}
-
-.board {
-  height: 100vh;
-  width: 90%;
-  background: transparent;
+  
+  .board {
+    height: 100vh;
+    width: 90%;
+    background: transparent;
+  }
 }

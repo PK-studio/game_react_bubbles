@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { changeScreen } from '../actions/action.change.screen'
+import { settings } from '../settings'
 
 export class Board extends Component {
+
+  spamBubbles() {
+    if (!props.spam) return;
+    for (let i = 0; i < settings.amountOfBubbles; i++) {
+      console.log('spam')
+    }
+  }
+
   render() {
     return (
       <div className='board'>

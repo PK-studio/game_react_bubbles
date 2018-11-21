@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { settings } from '../settings'
+import { ShowTime } from './Game.ControlPanel.ShowTime'
 import { Controls } from './Game.ControlPanel.Controls'
+import { activateColor } from '../actions/action.colors'
 
 export class ControlPanel extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -14,8 +17,19 @@ export class ControlPanel extends Component {
     this.timer = this.timer.bind(this)
   }
 
+  createButtons() {
+    return this.state.colors.map((color, index) => (
+      <div
+        key={index}
+        className='button'
+        style={{ backgroundColor: color }}
+        onClick={() => this.props.getColor(color)}
+      ></div >
+    ))
+  }
+
   shuffleColors() {
-    let array = this.state.colors
+    let array = [...this.state.colors]
     let currentIndex = array.length;
     let temporaryValue, randomIndex;
 
@@ -31,13 +45,16 @@ export class ControlPanel extends Component {
   }
 
   timer(currentTime = this.state.time) {
-    if (currentTime === 0) {
-      this.setState({
-        colors: this.shuffleColors(),
-        time: settings.shuffleColorsEvery
-      })
-    } else {
-      this.setState({ time: currentTime - 1 })
+    switch (currentTime) {
+      case 0:
+        this.setState({
+          colors: this.shuffleColors(),
+          time: settings.shuffleColorsEvery
+        })
+        break;
+      default:
+        this.setState({ time: currentTime - 1 })
+        break;
     }
   }
 
@@ -53,11 +70,19 @@ export class ControlPanel extends Component {
   render() {
     return (
       <div className='controPanel'>
-        <p>change in {this.state.time}</p>
-        <Controls colors={this.state.colors} />
+        <ShowTime time={this.state.time} />
+        <div className='controls'>
+          {this.createButtons()}
+        </div>
       </div>
     )
   }
 }
 
-export default connect(null, null)(ControlPanel)
+const mapDispatchToProps = dispatch => ({
+  getColor: color => {
+    dispatch(activateColor(color))
+  }
+})
+
+export default connect(null, mapDispatchToProps)(ControlPanel)
