@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { changeScreen } from '../actions/action.change.screen'
+import { changeScreen } from '../actions/action.changeScreen'
 
 export class Menu extends Component {
   render() {

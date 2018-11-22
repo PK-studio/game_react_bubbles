@@ -1,34 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { changeScreen } from '../actions/action.change.screen'
-import { settings } from '../settings'
+import { changeScreen } from '../actions/action.changeScreen'
+import { Spamer } from './Game.Board.Spamer'
 
 export class Board extends Component {
-
-  spamBubbles() {
-    if (!props.spam) return;
-    for (let i = 0; i < settings.amountOfBubbles; i++) {
-      console.log('spam')
-    }
-  }
-
   render() {
     return (
       <div className='board'>
         <h1>Game Component</h1>
-        <p>active color is {this.props.activeColor}</p>
         <button
           onClick={() => this.props.goTo('menu')}>
           Go to Menu
         </button>
+        <Spamer />
       </div>
     )
   }
 }
-
-const mapStateToProps = (state) => ({
-  activeColor: state.color.activeColor
-})
 
 const mapDispatchToProps = dispatch => ({
   goTo: place => {
@@ -36,4 +24,4 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Board)
+export default connect(null, mapDispatchToProps)(Board)

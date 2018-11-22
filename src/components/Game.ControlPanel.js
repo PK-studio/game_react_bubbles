@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { settings } from '../settings'
 import { ShowTime } from './Game.ControlPanel.ShowTime'
-import { Controls } from './Game.ControlPanel.Controls'
 import { activateColor } from '../actions/action.colors'
 
 export class ControlPanel extends Component {
@@ -14,7 +13,7 @@ export class ControlPanel extends Component {
       time: settings.shuffleColorsEvery,
       clock: null
     }
-    this.timer = this.timer.bind(this)
+    this.shuffleTimer = this.shuffleTimer.bind(this)
   }
 
   createButtons() {
@@ -44,7 +43,7 @@ export class ControlPanel extends Component {
     return array
   }
 
-  timer(currentTime = this.state.time) {
+  shuffleTimer(currentTime = this.state.time) {
     switch (currentTime) {
       case 0:
         this.setState({
@@ -59,7 +58,7 @@ export class ControlPanel extends Component {
   }
 
   componentDidMount() {
-    const clock = setInterval(this.timer, 1000)
+    const clock = setInterval(this.shuffleTimer, 1000)
     this.setState({ clock: clock })
   }
 
