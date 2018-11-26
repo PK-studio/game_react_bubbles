@@ -28,4 +28,4 @@ const mapStateToProps = state => ({
   displayScreen: state.screen.status
 })
 
-export default connect(mapStateToProps, {})(Screen)
+export default connect(mapStateToProps, null)(Screen)

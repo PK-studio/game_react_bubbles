@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { changeScreen } from '../actions/action.changeScreen'
-import { Spamer } from './Game.Board.Spamer'
+import Spamer from './Game.Board.Spamer'
+import Bubbles from './Game.Board.Bubbles'
 
 export class Board extends Component {
   render() {
@@ -13,10 +14,15 @@ export class Board extends Component {
           Go to Menu
         </button>
         <Spamer />
+        <Bubbles />
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+
+})
 
 const mapDispatchToProps = dispatch => ({
   goTo: place => {
@@ -24,4 +30,4 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(null, mapDispatchToProps)(Board)
+export default connect(mapStateToProps, mapDispatchToProps)(Board)

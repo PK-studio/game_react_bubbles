@@ -1,12 +1,20 @@
-import { SPAM_BUBBLES } from '../actions/types'
+import { SPAM_BUBBLES, BUBBLES_SPAMMED } from '../actions/types'
 
 const initialState = {
-  spam: false
+  spamStatus: true
 }
 
 export default function (state = initialState, action) {
-  if (action.type === SPAM_BUBBLES) {
-    return spam = action.payload
+  switch (action.type) {
+    case SPAM_BUBBLES:
+      return {
+        spamStatus: true
+      }
+    case BUBBLES_SPAMMED:
+      return {
+        spamStatus: false
+      }
+    default:
+      return state;
   }
-  return state
 }

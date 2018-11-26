@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { settings } from '../settings';
-import Panel from './Game.ControlPanel'
+import ControlPanel from './Game.ControlPanel'
 import Board from './Game.Board'
-import spamBubbles from '../actions/action.spamBubbles'
+import { spamBubbles } from '../actions/action.spam'
 
 export class Game extends Component {
 
@@ -12,30 +12,12 @@ export class Game extends Component {
     super(props)
     this.state = {
       spamInterval: null,
-      time: settings.spamFrequency
-    }
-  }
-
-  shouldComponentUpdate() {
-    return false
-  }
-
-  spamTimer() {
-    switch (this.state.time) {
-      case 0:
-        this.spamBubbles(true)
-        this.setState({ time: settings.spamFrequency })
-        break;
-      default:
-        this.spamBubbles(false)
-        this.setState({ time: this.state.time - 1 })
-        break;
     }
   }
 
   componentDidMount() {
     let frequancy = settings.spamFrequency * 1000
-    const spamInterval = setInterval(this.spamTimer, frequancy)
+    const spamInterval = setInterval(this.props.updateSpamStatus, frequancy)
     this.setState({ spamInterval })
   }
 
@@ -46,17 +28,23 @@ export class Game extends Component {
   render() {
     return (
       <div className='game'>
-        <Panel />
+        <ControlPanel />
         <Board />
       </div>
     )
   }
 }
 
+const mapStateToProps = state => ({
+  spamStatus: state.spam.spamStatus,
+  bubbleKey: state.bubbleKey.key,
+  map: state.bubbles.map
+})
+
 const mapDispatchToProps = dispatch => ({
-  spamBubbles: value => {
-    dispatch(spamBubbles(value))
+  updateSpamStatus: () => {
+    dispatch(spamBubbles())
   }
 })
 
-export default connect(null, mapDispatchToProps)(Game)
+export default connect(mapStateToProps, mapDispatchToProps)(Game)
