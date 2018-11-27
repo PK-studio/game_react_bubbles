@@ -1,8 +1,0 @@
-export const FETCH_EXAMPLE = 'FETCH_EXAMPLE';
-export const CHANGE_SCREEN = 'CHANGE_SCREEN';
-export const CHANGE_LEVEL = 'CHANGE_LEVEL';
-export const ACTIVATE_COLOR = 'ACTIVATE_COLOR';
-export const SPAM_BUBBLES = 'SPAM_BUBBLES';
-export const BUBBLES_SPAMMED = 'BUBBLES_SPAMMED';
-export const UPDATE_ARRAY = 'UPDATE_ARRAY';
-export const UPDATE_KEY = 'UPDATE_KEY';

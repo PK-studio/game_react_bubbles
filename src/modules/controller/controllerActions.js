@@ -1,4 +1,4 @@
-import { ACTIVATE_COLOR } from './types'
+export const ACTIVATE_COLOR = 'ACTIVATE_COLOR';
 
 export const activateColor = color => ({
   type: ACTIVATE_COLOR,

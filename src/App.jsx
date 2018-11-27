@@ -3,8 +3,8 @@ import { hot } from "react-hot-loader";
 import { Provider } from 'react-redux';
 
 import "./App.scss";
-import store from '../Store'
-import Screen from './Screen'
+import store from './Store'
+import Screen from './modules/screen/screenContainet'
 
 class App extends Component {
   render() {

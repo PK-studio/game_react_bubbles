@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { settings } from '../settings'
-import { ShowTime } from './Game.ControlPanel.ShowTime'
-import { activateColor } from '../actions/action.colors'
+import { settings } from '../../settings'
 
-export class ControlPanel extends Component {
+export class Controller extends Component {
 
   constructor(props) {
     super(props)
@@ -13,7 +10,7 @@ export class ControlPanel extends Component {
       time: settings.shuffleColorsEvery,
       clock: null
     }
-    this.shuffleTimer = this.shuffleTimer.bind(this)
+    this.timer = this.timer.bind(this)
   }
 
   createButtons() {
@@ -22,7 +19,7 @@ export class ControlPanel extends Component {
         key={index}
         className='button'
         style={{ backgroundColor: color }}
-        onClick={() => this.props.getColor(color)}
+        onClick={() => this.props.activateColor(color)}
       ></div >
     ))
   }
@@ -43,8 +40,8 @@ export class ControlPanel extends Component {
     return array
   }
 
-  shuffleTimer(currentTime = this.state.time) {
-    switch (currentTime) {
+  timer() {
+    switch (this.state.time) {
       case 0:
         this.setState({
           colors: this.shuffleColors(),
@@ -52,13 +49,14 @@ export class ControlPanel extends Component {
         })
         break;
       default:
-        this.setState({ time: currentTime - 1 })
-        break;
+        this.setState(prevState => ({
+          time: prevState.time - 1
+        }))
     }
   }
 
   componentDidMount() {
-    const clock = setInterval(this.shuffleTimer, 1000)
+    const clock = setInterval(this.timer, 1000)
     this.setState({ clock: clock })
   }
 
@@ -68,20 +66,12 @@ export class ControlPanel extends Component {
 
   render() {
     return (
-      <div className='controPanel'>
-        <ShowTime time={this.state.time} />
-        <div className='controls'>
+      <div className='controller'>
+        <p className='showtime'>{this.state.time}</p>
+        <div className='buttonsContainer'>
           {this.createButtons()}
         </div>
       </div>
     )
   }
 }
-
-const mapDispatchToProps = dispatch => ({
-  getColor: color => {
-    dispatch(activateColor(color))
-  }
-})
-
-export default connect(null, mapDispatchToProps)(ControlPanel)

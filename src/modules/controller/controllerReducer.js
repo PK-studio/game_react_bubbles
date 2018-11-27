@@ -1,14 +1,14 @@
-import { ACTIVATE_COLOR } from '../actions/types';
+import { ACTIVATE_COLOR } from './controllerActions';
 
 const initialState = {
-  activeColor: 'none'
+  color: 'none'
 }
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case ACTIVATE_COLOR:
       return {
-        activeColor: action.payload
+        color: action.payload
       }
     default:
       return state;
