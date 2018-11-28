@@ -7,7 +7,7 @@ export class Controller extends Component {
     super(props)
     this.state = {
       colors: settings.colors,
-      time: settings.shuffleColorsEvery,
+      time: settings.shuffleColorsInterval,
       clock: null
     }
     this.timer = this.timer.bind(this)
@@ -45,7 +45,7 @@ export class Controller extends Component {
       case 0:
         this.setState({
           colors: this.shuffleColors(),
-          time: settings.shuffleColorsEvery
+          time: settings.shuffleColorsInterval
         })
         break;
       default:

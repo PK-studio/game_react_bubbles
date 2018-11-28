@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Controlls from '../controller/controllerContainer'
+import Controller from '../controller/controllerContainer'
 import Board from '../board/boardContainer'
 
 export class Screen extends Component {
@@ -7,7 +7,7 @@ export class Screen extends Component {
   game() {
     return (
       <div className='game'>
-        <Controlls />
+        <Controller />
         <Board />
       </div>
     )
