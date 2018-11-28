@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { changeScreen } from '../screen/screenActions'
-import { Board } from './boardComponent'
+import { BoardComponent } from './BoardComponent'
 
 const mapDispatchToProps = dispatch => ({
   goTo: place => {
@@ -8,4 +8,4 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(null, mapDispatchToProps)(Board)
+export default connect(null, mapDispatchToProps)(BoardComponent)

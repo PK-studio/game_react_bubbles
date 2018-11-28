@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import Controller from '../controller/controllerContainer'
-import Board from '../board/boardContainer'
+import ControllerContainer from '../controller/ControllerContainer'
+import BoardContainer from '../board/BoardContainer'
 
-export class Screen extends Component {
+export class ScreenComponent extends Component {
 
   game() {
     return (
       <div className='game'>
-        <Controller />
-        <Board />
+        <ControllerContainer />
+        <BoardContainer />
       </div>
     )
   }

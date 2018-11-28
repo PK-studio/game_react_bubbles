@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { settings } from '../../settings'
 
-export class Controller extends Component {
+export class ControllerComponent extends Component {
 
   constructor(props) {
     super(props)

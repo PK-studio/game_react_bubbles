@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { changeScreen } from './screenActions'
-import { Screen } from './screenComponent'
+import { ScreenComponent } from './ScreenComponent'
 
 const mapStateToProps = state => ({
   displayScreen: state.selectedScreen.screenName
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Screen)
+export default connect(mapStateToProps, mapDispatchToProps)(ScreenComponent)

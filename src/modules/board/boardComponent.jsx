@@ -1,28 +1,28 @@
 import React, { Component } from 'react'
 import { settings } from '../../settings';
-import Bubble from '../bubble/bubbleContainer'
+import BubbleContainer from '../bubble/BubbleContainer'
 
-export class Board extends Component {
+export class BoardComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {
       spamTimer: null,
       lastBubbleNum: 5,
-      bubbleList: [1, 2, 3, 4, 5]
+      bubblesList: [1, 2, 3, 4, 5]
     }
     this.spam = this.spam.bind(this)
   }
 
   spam() {
     let newLastBubbleNum = this.state.lastBubbleNum
-    let newBubblesList = [...this.state.bubbleList]
+    let newBubblesList = [...this.state.bubblesList]
     for (let b = 0; b < settings.amountOfBubbles; b++) {
       newLastBubbleNum = newLastBubbleNum + 1
       newBubblesList.push(newLastBubbleNum)
     }
     this.setState({
       lastBubbleNum: newLastBubbleNum,
-      bubbleList: newBubblesList
+      bubblesList: newBubblesList
     })
   }
 
@@ -42,7 +42,7 @@ export class Board extends Component {
         <button onClick={() => this.props.goTo('menu')}>
           Go to Menu
         </button>
-        {this.state.bubbleList.map(bubbleNum => <Bubble key={bubbleNum} />)}
+        {this.state.bubblesList.map(bubbleNum => <BubbleContainer key={bubbleNum} />)}
       </div>
     )
   }

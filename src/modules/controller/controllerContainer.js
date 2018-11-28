@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { activateColor } from './controllerActions'
-import { Controller } from './controllerComponent'
+import { ControllerComponent } from './ControllerComponent'
 
 const mapDispatchToProps = dispatch => ({
   activateColor: color => {
@@ -8,4 +8,4 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(null, mapDispatchToProps)(Controller)
+export default connect(null, mapDispatchToProps)(ControllerComponent)

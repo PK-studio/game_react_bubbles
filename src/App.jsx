@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import "./App.scss";
 import store from './Store'
-import Screen from './modules/screen/screenContainet'
+import Screen from './modules/screen/ScreenContainet'
 
 class App extends Component {
   render() {
