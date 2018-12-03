@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { changeScreen } from './screenActions'
+import { changeScreenTo } from './screenActions'
 import { ScreenComponent } from './ScreenComponent'
 
 const mapStateToProps = state => ({
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   changeScreenTo: place => {
-    dispatch(changeScreen(place))
+    dispatch(changeScreenTo(place))
   }
 })
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { BubbleComponent } from './BubbleComponent'
-import { changeScreen } from '../screen/screenActions'
+import { changeScreenTo } from '../screen/screenActions'
 import { collectBubble } from '../board/boardActions'
 
 const mapStateToProps = state => ({
@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   gameOver: screen => {
-    dispatch(changeScreen(screen))
+    dispatch(changeScreenTo('menu'))
+    dispatch(restartBubbles())
   },
   collectBubble: bubble => {
     dispatch(collectBubble(bubble))

@@ -43,8 +43,7 @@ export class BubbleComponent extends Component {
 
   canFinishGame() {
     if (this.state.top < -28) {
-      // this.props.gameOver()
-      console.log('game over')
+      this.props.gameOver()
     }
   }
 

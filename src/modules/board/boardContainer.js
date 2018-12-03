@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { changeScreen } from '../screen/screenActions'
+import { changeScreenTo } from '../screen/screenActions'
 import { BoardComponent } from './BoardComponent'
 import { spamBubbles, restartBubbles } from './boardActions'
 
@@ -8,10 +8,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  changeScreen: place => {
-    dispatch(changeScreen(place))
-    dispatch(restartBubbles())
-  },
   spamBubbles: bubbles => {
     dispatch(spamBubbles(bubbles))
   }

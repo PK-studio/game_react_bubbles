@@ -23,7 +23,7 @@ export class BoardComponent extends Component {
   }
 
   onClick() {
-    this.props.changeScreen('menu')
+    this.props.changeScreenTo('menu')
   }
 
   componentWillMount() {

@@ -1,6 +1,6 @@
 export const CHANGE_SCREEN = 'CHANGE_SCREEN';
 
-export const changeScreen = name => ({
+export const changeScreenTo = name => ({
   type: CHANGE_SCREEN,
   payload: name
 })
