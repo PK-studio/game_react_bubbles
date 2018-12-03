@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { BubbleComponent } from './BubbleComponent'
 import { changeScreenTo } from '../screen/screenActions'
-import { collectBubble } from '../board/boardActions'
+import { collectBubble, restartBubbles } from '../board/boardActions'
 
 const mapStateToProps = state => ({
   screenWidth: state.selectedScreen.screenWidth,
