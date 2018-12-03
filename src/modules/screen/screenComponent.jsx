@@ -16,7 +16,7 @@ export class ScreenComponent extends Component {
   menu() {
     return (
       <div className='menu'>
-        <button onClick={() => this.props.goTo('game')}>
+        <button onClick={() => this.props.changeScreenTo('game')}>
           Go to game
       </button>
       </div>

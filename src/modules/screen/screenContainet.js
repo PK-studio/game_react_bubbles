@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  goTo: place => {
+  changeScreenTo: place => {
     dispatch(changeScreen(place))
   }
 })

@@ -6,27 +6,27 @@ export class BoardComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      spamTimer: null,
-      lastBubbleNum: 5,
-      bubblesList: [1, 2, 3, 4, 5]
+      spamTimer: null
     }
+    this.lastBubbleNumber = this.props.bubblesList.length - 1
     this.spam = this.spam.bind(this)
+    this.onClick = this.onClick.bind(this)
   }
 
   spam() {
-    let newLastBubbleNum = this.state.lastBubbleNum
-    let newBubblesList = [...this.state.bubblesList]
+    let newBubblesList = [...this.props.bubblesList]
     for (let b = 0; b < settings.amountOfBubbles; b++) {
-      newLastBubbleNum = newLastBubbleNum + 1
-      newBubblesList.push(newLastBubbleNum)
+      this.lastBubbleNumber = this.lastBubbleNumber + 1
+      newBubblesList.push(this.lastBubbleNumber)
     }
-    this.setState({
-      lastBubbleNum: newLastBubbleNum,
-      bubblesList: newBubblesList
-    })
+    this.props.spamBubbles(newBubblesList)
   }
 
-  componentDidMount() {
+  onClick() {
+    this.props.changeScreen('menu')
+  }
+
+  componentWillMount() {
     const newSpamTimer = setInterval(this.spam, settings.spamFrequency)
     this.setState({ spamTimer: newSpamTimer })
   }
@@ -36,13 +36,16 @@ export class BoardComponent extends Component {
   }
 
   render() {
+    const bubblesMap = this.props.bubblesList.map(bubbleNum => {
+      return <BubbleContainer key={bubbleNum} bubbleNum={bubbleNum} />
+    })
     return (
       <div className='board'>
         <h1>Game</h1>
-        <button onClick={() => this.props.goTo('menu')}>
+        <button onClick={this.onClick}>
           Go to Menu
         </button>
-        {this.state.bubblesList.map(bubbleNum => <BubbleContainer key={bubbleNum} />)}
+        {bubblesMap}
       </div>
     )
   }

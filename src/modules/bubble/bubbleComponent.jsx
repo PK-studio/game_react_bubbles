@@ -12,7 +12,8 @@ export class BubbleComponent extends Component {
       movementInterval: ''
     }
     this.moveBubble = this.moveBubble.bind(this)
-    this.canRemove = this.canRemove.bind(this)
+    this.canCollectBubble = this.canCollectBubble.bind(this)
+    this.canFinishGame = this.canFinishGame.bind(this)
   }
 
   makeBubbleStyle() {
@@ -29,7 +30,7 @@ export class BubbleComponent extends Component {
 
     const initSpeed = () => {
       const offset = Math.floor(Math.random() * (settings.speed * settings.speedOffset))
-      return settings.speed - offset 
+      return settings.speed - offset
     }
 
     this.setState({
@@ -40,19 +41,23 @@ export class BubbleComponent extends Component {
     })
   }
 
-  removeBubble(){
-    console.log('should remove bubble')
+  canFinishGame() {
+    if (this.state.top < -28) {
+      // this.props.gameOver()
+      console.log('game over')
+    }
   }
 
   moveBubble() {
+    this.canFinishGame()
     this.setState(prev => ({
       top: prev.top - 2
     }))
   }
 
-  canRemove(){
-    if(this.props.activeColor === this.state.color){
-      this.removeBubble()
+  canCollectBubble() {
+    if (this.props.activeColor === this.state.color) {
+      this.props.collectBubble(this.props.bubbleNum)
     }
   }
 
@@ -79,7 +84,7 @@ export class BubbleComponent extends Component {
       <div
         className='bubble'
         style={bubbleStyle}
-        onClick={this.canRemove}
+        onClick={this.canCollectBubble}
       ></div>
     )
   }
